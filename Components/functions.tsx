@@ -1,4 +1,4 @@
-function calculateWinner(tr1:string[]) {
+function calculateWinner(currentBoard:string[]) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -11,8 +11,8 @@ function calculateWinner(tr1:string[]) {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (tr1[a] && tr1[a] === tr1[b] && tr1[a] === tr1[c]) {
-        return tr1[a];
+      if (currentBoard[a] && currentBoard[a] === currentBoard[b] && currentBoard[a] === currentBoard[c]) {
+        return currentBoard[a];
       }
     }
     return null;
