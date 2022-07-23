@@ -73,7 +73,7 @@ export default function Game() {
         })}
 
         <p>Next Player : {player}</p>
-        <p>Winner : {winner ? {winner} : ""}</p>
+        <p>{winner ? "Winner :{winner}" : ""}</p>
       </div>
     </div>
   )
