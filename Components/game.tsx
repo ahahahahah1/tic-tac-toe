@@ -37,12 +37,13 @@ export default function Game() {
     const currentTurn = newHistory[turnNumber];
     const currentBoard = [...currentTurn];
     
-    if (winner || currentBoard[turn]) return;
+    if (!(winner || currentBoard[turn])) {
     
-    currentBoard[turn] = player;
-    setHistory([...newHistory, currentBoard]);
-    setTurnNumber(newHistory.length);
-    setNextPlayer(!isXNext);
+      currentBoard[turn] = player;
+      setHistory([...newHistory, currentBoard]);
+      setTurnNumber(newHistory.length);
+      setNextPlayer(!isXNext);
+    }
   }
   
   function jumpToPreviousMove (turn: number) {
@@ -57,7 +58,7 @@ export default function Game() {
     <div>
       <div className="gameBoard">
         {history[turnNumber].map((box, i) => (
-          <button key={i} value={box} onClick={handleClick(i)}> {box} </button>
+          <button key={i} value={box} onClick={() =>handleClick(i)}> {box} </button>
         ))}
       </div>
 
